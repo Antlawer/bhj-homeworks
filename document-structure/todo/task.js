@@ -8,16 +8,20 @@ button.addEventListener('click', (event) => {
     event.preventDefault();
     const textIn = placeHold.value;
 
-    const div = `
-        <div class="task">
-            <div class="task__title">
-                ${textIn}
+    if (textIn !== '' && textIn.trim() !== '') {
+        const div = `
+            <div class="task">
+                <div class="task__title">
+                    ${textIn}
+                </div>
+                <a href="#" class="task__remove">&times;</a>
             </div>
-            <a href="#" class="task__remove">&times;</a>
-        </div>
-    `;
+        `;
 
-    tasks.insertAdjacentHTML('afterBegin', `${div}`);  
+        tasks.insertAdjacentHTML('afterBegin', `${div}`);
+        placeHold.value = '';
+    }
+
 })
 
 tasks.addEventListener('click', (e) => {
