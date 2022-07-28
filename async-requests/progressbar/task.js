@@ -10,8 +10,9 @@ form.addEventListener('submit', (event) => {
 
     xhr.open('POST', 'https://netology-slow-rest.herokuapp.com/upload.php', true);
 
+
     xhr.upload.addEventListener('progress', (ev) => {
-        progress.value = ev.loaded / ev.total;
+        setInterval (() => progress.value = progress.value + 0.1, 100)        
     })
 
     xhr.send(formData);
